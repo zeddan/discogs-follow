@@ -1,0 +1,241 @@
+{
+   "pagination":{
+      "page":1,
+      "pages":1,
+      "per_page":50,
+      "items":12,
+      "urls":{
+         
+      }
+   },
+   "releases":[
+      {
+         "id":4496885,
+         "status":"Accepted",
+         "type":"release",
+         "format":"Cass, Ltd",
+         "label":"Bepotel Records",
+         "title":"Dancing Memory",
+         "resource_url":"https://api.discogs.com/releases/4496885",
+         "role":"Main",
+         "artist":"Walrus (7)",
+         "year":2013,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":12,
+               "in_collection":25
+            }
+         }
+      },
+      {
+         "id":6746384,
+         "status":"Accepted",
+         "type":"release",
+         "format":"12\", EP",
+         "label":"Roze Balletten",
+         "title":"Club Jonathan EP",
+         "resource_url":"https://api.discogs.com/releases/6746384",
+         "role":"Main",
+         "artist":"Walrus (7)",
+         "year":2015,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":92,
+               "in_collection":98
+            }
+         }
+      },
+      {
+         "id":7707237,
+         "status":"Accepted",
+         "type":"release",
+         "format":"12\", EP, Ltd, Num, han",
+         "label":"9300 Records",
+         "title":"Spear-Thrower Bucket EP",
+         "resource_url":"https://api.discogs.com/releases/7707237",
+         "role":"Main",
+         "artist":"Walrus (7)",
+         "year":2015,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":104,
+               "in_collection":88
+            }
+         }
+      },
+      {
+         "id":7902316,
+         "status":"Accepted",
+         "type":"release",
+         "format":"File, AIFF, FLAC, MP3, WAV, Mixed",
+         "label":"Bepotel Records",
+         "title":"Research into the development of reinterpreted songs ",
+         "resource_url":"https://api.discogs.com/releases/7902316",
+         "role":"Main",
+         "artist":"Walrus (7)",
+         "year":2015,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":1,
+               "in_collection":0
+            }
+         }
+      },
+      {
+         "id":7902366,
+         "status":"Accepted",
+         "type":"release",
+         "format":"File, MP3, Mixed",
+         "label":"warm soundsystem",
+         "title":"Warm Soundsystem #7",
+         "resource_url":"https://api.discogs.com/releases/7902366",
+         "role":"Main",
+         "artist":"Walrus (7)",
+         "year":2015,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":1,
+               "in_collection":0
+            }
+         }
+      },
+      {
+         "id":7902420,
+         "status":"Accepted",
+         "type":"release",
+         "format":"File, MP3, Mixed",
+         "label":"Fuse Club",
+         "title":"Live at Fuse Brussels 21/03/15",
+         "resource_url":"https://api.discogs.com/releases/7902420",
+         "role":"Main",
+         "artist":"Walrus (7)",
+         "year":2015,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":0,
+               "in_collection":0
+            }
+         }
+      },
+      {
+         "id":8011956,
+         "status":"Accepted",
+         "type":"release",
+         "format":"12\", EP",
+         "label":"Florklang",
+         "title":"Rizing Field / Silver Gifts",
+         "resource_url":"https://api.discogs.com/releases/8011956",
+         "role":"Main",
+         "artist":"Humandrone / Walrus (7)",
+         "year":2016,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":52,
+               "in_collection":36
+            }
+         }
+      },
+      {
+         "id":1739903,
+         "title":"Basic Moves 01",
+         "type":"master",
+         "main_release":9865310,
+         "artist":"Walrus (7)",
+         "role":"Main",
+         "resource_url":"https://api.discogs.com/masters/1739903",
+         "year":2017,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":450,
+               "in_collection":160
+            }
+         }
+      },
+      {
+         "id":14809797,
+         "status":"Accepted",
+         "type":"release",
+         "format":"12\", Ltd",
+         "label":"Basic Moves",
+         "title":"Listen to the Basic Moves",
+         "resource_url":"https://api.discogs.com/releases/14809797",
+         "role":"Main",
+         "artist":"Walrus (7), Dj.Booth",
+         "year":2020,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":254,
+               "in_collection":147
+            }
+         }
+      },
+      {
+         "id":2919157,
+         "status":"Accepted",
+         "type":"release",
+         "format":"Cass, S/Sided",
+         "label":"Gentle Tapes (2)",
+         "title":"Put Porche On A Dub",
+         "resource_url":"https://api.discogs.com/releases/2919157",
+         "role":"Remix",
+         "artist":"Pitch & Hold",
+         "trackinfo":"Put Porche On A Dub (W...",
+         "year":2011,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":3,
+               "in_collection":3
+            }
+         }
+      },
+      {
+         "id":3427565,
+         "status":"Accepted",
+         "type":"release",
+         "format":"Cass, Ltd, Mixed, C90",
+         "label":"Varech",
+         "title":"Cassette One",
+         "resource_url":"https://api.discogs.com/releases/3427565",
+         "role":"DJ Mix",
+         "artist":"Various",
+         "year":2012,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":16,
+               "in_collection":6
+            }
+         }
+      },
+      {
+         "id":15237121,
+         "status":"Accepted",
+         "type":"release",
+         "format":"File, MP3, Mixed, 320",
+         "label":"Resident Advisor",
+         "title":"RA.619",
+         "resource_url":"https://api.discogs.com/releases/15237121",
+         "role":"TrackAppearance",
+         "artist":"Gwenan*",
+         "trackinfo":"Among The Thugs",
+         "year":2018,
+         "thumb":"",
+         "stats":{
+            "community":{
+               "in_wantlist":0,
+               "in_collection":1
+            }
+         }
+      }
+   ]
+}
