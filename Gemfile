@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'httparty', '~> 0.18.1'
+gem "sidekiq"
+gem "sidekiq-cron"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -63,6 +65,7 @@ group :test do
   gem 'webmock'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem 'rspec-sidekiq'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
