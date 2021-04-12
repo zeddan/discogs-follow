@@ -1,4 +1,5 @@
 # config/schedule.yml
-new_releases_worker:
-  cron: "*/1 * * * *" #it will retrieve data every 1 minute
-  class: "NewReleasesWorker"
+
+artist_worker:
+  cron: "0 9 * * *"
+  class: "ArtistWorker"
