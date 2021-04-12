@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe NewReleasesHandler do
-  subject(:call) { described_class.new.call }
+  subject(:call) { described_class.new(artist.artist_id).call }
 
   let(:discogs_url) { "https://api.discogs.com/artists/#{artist.artist_id}/releases?token=#{token}" }
   let(:token) { ENV["DISCOGS_TOKEN"] }

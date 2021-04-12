@@ -1,5 +1,7 @@
 class NewReleasesHandler
-  ARTIST_ID = "2274799"
+  def initialize(artist_id)
+    @artist_id = artist_id
+  end
 
   def call
     save_new_releases
@@ -8,7 +10,7 @@ class NewReleasesHandler
   private
 
   def save_new_releases
-    artist = Artist.find_by(artist_id: ARTIST_ID)
+    artist = Artist.find_by(artist_id: @artist_id)
 
     releases.each do |release|
       artist.releases.find_or_create_by(
@@ -25,7 +27,7 @@ class NewReleasesHandler
 
   def call_api
     token = ENV["DISCOGS_TOKEN"]
-    response = HTTParty.get("https://api.discogs.com/artists/#{ARTIST_ID}/releases?token=#{token}")
+    response = HTTParty.get("https://api.discogs.com/artists/#{@artist_id}/releases?token=#{token}")
     JSON.parse(response.body)
   end
 end
