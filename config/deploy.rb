@@ -6,7 +6,6 @@ set :rbenv_ruby, '2.7.2'
 
 set :repo_url,        "git@github.com:zeddan/discogs-follow.git"
 # set :branch,          "main"
-ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :application,     "discogs-follow"
 # set :website_url,     "robinsaaf.se/discogs-follow"
 set :user,            "zeddan"
@@ -32,6 +31,8 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh
 set :puma_preload_app, true
 # set :puma_worker_timeout, nil
 set :puma_init_active_record, true
+
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 namespace :puma do
   desc "Create Directories for Puma Pids and Socket"
