@@ -5,7 +5,8 @@ server "178.62.34.65", port: 22, roles: %i[web app db], primary: true
 set :rbenv_ruby, '2.7.2'
 
 set :repo_url,        "git@github.com:zeddan/discogs-follow.git"
-set :branch,          "main"
+# set :branch,          "main"
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :application,     "discogs-follow"
 # set :website_url,     "robinsaaf.se/discogs-follow"
 set :user,            "zeddan"
