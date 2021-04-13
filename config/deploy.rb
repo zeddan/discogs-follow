@@ -14,7 +14,7 @@ set :puma_workers,    0
 # set :ssl_certificate, "/etc/letsencrypt/live/sewersender.se/fullchain.pem"
 # set :ssl_key,         "/etc/letsencrypt/live/sewersender.se/privkey.pem"
 
-# set :linked_files, %w{config/master.key}
+set :linked_files, %w{config/master.key}
 
 set :pty,             true
 # set :use_sudo,        false
