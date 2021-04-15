@@ -7,6 +7,7 @@ require "capistrano/rails/migrations"
 require "capistrano/bundler"
 require "capistrano/rbenv"
 require "capistrano/puma"
+require "capistrano/postgresql"
 
 install_plugin Capistrano::Puma
 
