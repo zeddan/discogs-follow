@@ -7,7 +7,7 @@ set :rbenv_ruby, "2.7.2"
 set :repo_url,        "git@github.com:zeddan/discogs-follow.git"
 set :application,     "discogs-follow"
 # set :website_url,     "robinsaaf.se/discogs-follow"
-set :user,            "zeddan"
+set :user,            "discogsfollow"
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 # set :enable_ssl,      true
