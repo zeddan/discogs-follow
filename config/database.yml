@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: discogs-follow_production
-  username: discogs-follow
-  password: <%= ENV['DISCOGS-FOLLOW_DATABASE_PASSWORD'] %>
+  username: discogsfollow
+  password: <%= Rails.application.credentials.db_pwd %>
