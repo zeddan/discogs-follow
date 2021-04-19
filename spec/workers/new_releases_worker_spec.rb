@@ -1,5 +1,5 @@
-require 'rails_helper'
-require 'sidekiq/testing'
+require "rails_helper"
+require "sidekiq/testing"
 
 RSpec.describe NewReleasesWorker, type: :worker do
   subject(:perform) { described_class.perform_async }

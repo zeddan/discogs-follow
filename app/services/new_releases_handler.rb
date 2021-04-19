@@ -16,7 +16,7 @@ class NewReleasesHandler
       artist.releases.find_or_create_by(
         release_id: release["id"],
         title: release["title"],
-        year: release["year"]
+        year: release["year"],
       )
     end
   end

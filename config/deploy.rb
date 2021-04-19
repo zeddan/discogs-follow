@@ -2,7 +2,7 @@ lock "~> 3.16.0"
 
 server "178.62.34.65", port: 22, roles: %i[web app db], primary: true
 
-set :rbenv_ruby, '2.7.2'
+set :rbenv_ruby, "2.7.2"
 
 set :repo_url,        "git@github.com:zeddan/discogs-follow.git"
 set :application,     "discogs-follow"
