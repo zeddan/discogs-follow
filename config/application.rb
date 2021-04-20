@@ -13,7 +13,7 @@ module DiscogsFollow
 
     config.active_job.queue_adapter = :sidekiq
 
-    config.relative_url_root = "/discogs-follow"
+    # config.relative_url_root = "/discogs-follow"
     #test
 
     # Settings in config/environments/* take precedence over those specified here.
