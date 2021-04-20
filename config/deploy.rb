@@ -10,9 +10,9 @@ set :application,     "discogs-follow"
 set :user,            "discogsfollow"
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
-# set :enable_ssl,      true
-# set :ssl_certificate, "/etc/letsencrypt/live/sewersender.se/fullchain.pem"
-# set :ssl_key,         "/etc/letsencrypt/live/sewersender.se/privkey.pem"
+set :enable_ssl,      true
+set :ssl_certificate, "/etc/letsencrypt/live/robinsaaf.se/fullchain.pem;"
+set :ssl_key,         "/etc/letsencrypt/live/robinsaaf.se/privkey.pem;"
 
 set :pg_generate_random_password, true
 
