@@ -13,6 +13,8 @@ class ArtistsController < ApplicationController
 
   def edit; end
 
+  def show; end
+
   def create
     @artist = Artist.new(artist_params)
 
