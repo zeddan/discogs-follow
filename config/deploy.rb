@@ -15,9 +15,6 @@ set :ssl_certificate, "/etc/letsencrypt/live/robinsaaf.se/fullchain.pem;"
 set :ssl_key,         "/etc/letsencrypt/live/robinsaaf.se/privkey.pem;"
 
 set :linked_files, %w{config/master.key}
-set :default_environment, {
-  "RAILS_RELATIVE_URL_ROOT" => "/discogs-follow",
-}
 
 set :pty,             true
 set :use_sudo,        false
@@ -73,5 +70,5 @@ namespace :deploy do
     end
   end
 
-  before :starting,     :check_revision
+  before :starting, :check_revision
 end
