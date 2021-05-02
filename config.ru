@@ -2,6 +2,7 @@
 
 require_relative "config/environment"
 
-map "/discogs-follow" do
-  run Rails.application
-end
+# map "/discogs-follow" do
+#   run Rails.application
+# end
+run Rails.application

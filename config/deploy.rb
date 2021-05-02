@@ -73,18 +73,5 @@ namespace :deploy do
     end
   end
 
-  task :symlink_relative_public do
-    on roles(:app) do
-      root_url = default_environment["RAILS_RELATIVE_URL_ROOT"]
-      if root_url
-        root_dir = root_url.split("/")[0..-2].join("/")
-        run "mkdir -p #{latest_release}/public#{root_dir}" if root_dir.present?
-        run "ln -nfs #{latest_release}/public #{latest_release}/public#{root_url}"
-      end
-    end
-  end
-
   before :starting,     :check_revision
-  after  :finishing,    :restart
-  after  :finishing,    "deploy:symlink_relative_public"
 end
