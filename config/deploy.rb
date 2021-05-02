@@ -1,6 +1,6 @@
 lock "~> 3.16.0"
 
-server "178.62.34.65", port: 22, roles: %i[web app db], primary: true
+server "167.172.162.161", port: 22, roles: %i[web app db], primary: true
 
 set :rbenv_ruby, "2.7.2"
 
