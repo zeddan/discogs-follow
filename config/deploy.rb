@@ -15,7 +15,9 @@ set :ssl_certificate, "/etc/letsencrypt/live/robinsaaf.se/fullchain.pem;"
 set :ssl_key,         "/etc/letsencrypt/live/robinsaaf.se/privkey.pem;"
 
 set :linked_files, %w{config/master.key}
-set :env_vars, "RAILS_RELATIVE_URL_ROOT=/discogs-follow"
+set :default_environment, {
+  "RAILS_RELATIVE_URL_ROOT" => "/discogs-follow",
+}
 
 set :pty,             true
 set :use_sudo,        false
@@ -71,6 +73,16 @@ namespace :deploy do
     end
   end
 
+  task :symlink_relative_public, roles: :app do
+    root_url = default_environment["RAILS_RELATIVE_URL_ROOT"]
+    if root_url
+      root_dir = root_url.split("/")[0..-2].join("/")
+      run "mkdir -p #{latest_release}/public#{root_dir}" if root_dir.present?
+      run "ln -nfs #{latest_release}/public #{latest_release}/public#{root_url}"
+    end
+  end
+
   before :starting,     :check_revision
   after  :finishing,    :restart
+  after "deploy:assets:precompile", "deploy:symlink_relative_public"
 end
