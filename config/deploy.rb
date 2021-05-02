@@ -14,9 +14,8 @@ set :enable_ssl,      true
 set :ssl_certificate, "/etc/letsencrypt/live/robinsaaf.se/fullchain.pem;"
 set :ssl_key,         "/etc/letsencrypt/live/robinsaaf.se/privkey.pem;"
 
-set :pg_generate_random_password, true
-
 set :linked_files, %w{config/master.key}
+set :env_vars, "RAILS_RELATIVE_URL_ROOT=/discogs-follow"
 
 set :pty,             true
 set :use_sudo,        false
