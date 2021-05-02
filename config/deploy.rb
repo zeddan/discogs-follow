@@ -86,5 +86,5 @@ namespace :deploy do
 
   before :starting,     :check_revision
   after  :finishing,    :restart
-  after "deploy:assets:precompile", "deploy:symlink_relative_public"
+  after  :finishing,    "deploy:symlink_relative_public"
 end
