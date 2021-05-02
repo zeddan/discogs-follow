@@ -15,7 +15,7 @@ module DiscogsFollow
 
     config.relative_url_root = "/discogs-follow"
     config.action_controller.relative_url_root = "/discogs-follow"
-    # config.assets.prefix = "/discogs-follow#{config.assets.prefix}"
+    config.assets.prefix = "/discogs-follow#{config.assets.prefix}"
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
