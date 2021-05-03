@@ -1,4 +1,4 @@
-class NewReleasesHandler
+class ReleasesDownloader
   def initialize(artist_id)
     @artist_id = artist_id
   end
