@@ -1,5 +1,5 @@
 # config/schedule.yml
 
-artist_worker:
+new_releases_worker:
   cron: "0 9 * * *"
-  class: "ArtistWorker"
+  class: "NewReleasesWorker"

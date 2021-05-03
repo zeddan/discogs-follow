@@ -1,9 +1,7 @@
 class ArtistWorker
   include Sidekiq::Worker
 
-  def perform
-    Artist.all.each do |artist|
-      NewReleasesWorker.perform_async(artist.artist_id)
-    end
+  def perform(artist_id)
+    ReleasesDownloader.new(artist_id).call
   end
 end
