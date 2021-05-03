@@ -1,5 +1,9 @@
 # config/schedule.yml
 
 new_releases_worker:
-  cron: "0 9 * * *"
+  cron: "0 8 * * *"
   class: "NewReleasesWorker"
+
+new_releases_notification_worker:
+  cron: "0 9 * * *"
+  class: "NewReleasesNotificationWorker"

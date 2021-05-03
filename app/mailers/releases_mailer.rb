@@ -1,8 +1,9 @@
 class ReleasesMailer < ApplicationMailer
-  def releases_notification
+  def notification
+    @releases = Release.latest
     mail(
-      to: Rails.application.credentials.gmail_username,
-      subject: "Test mail",
+      to: Rails.application.credentials.me,
+      subject: "New releases!",
     )
   end
 end

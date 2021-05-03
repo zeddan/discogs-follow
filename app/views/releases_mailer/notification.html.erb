@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>There are <%= @releases.size %> new releases waiting for you!</p>
+    <p>
+      <% @releases.each do |release| %>
+        <p>
+          <a href="https://api.discogs.com/releases/<%= release.release_id %>">
+            <strong><%= release.title %></strong> by <%= release.artist.name %>
+          </a>
+        </p>
+      <% end %>
+    </p>
+  </body>
+</html>
