@@ -4,7 +4,7 @@ RSpec.describe NewReleasesHandler do
   subject(:call) { described_class.new(artist.artist_id).call }
 
   let(:discogs_url) { "https://api.discogs.com/artists/#{artist.artist_id}/releases?token=#{token}" }
-  let(:token) { ENV["DISCOGS_TOKEN"] }
+  let(:token) { Rails.application.credentials.discogs_token }
 
   let(:api_response) { File.read("spec/fixtures/artist_releases.json") }
   let(:releases) { JSON.parse(api_response)["releases"] }

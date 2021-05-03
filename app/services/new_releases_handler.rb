@@ -26,7 +26,7 @@ class NewReleasesHandler
   end
 
   def call_api
-    token = ENV["DISCOGS_TOKEN"]
+    token = Rails.application.credentials.discogs_token
     response = HTTParty.get("https://api.discogs.com/artists/#{@artist_id}/releases?token=#{token}")
     JSON.parse(response.body)
   end
