@@ -358,7 +358,7 @@ Style/TrailingCommaInArguments:
     - comma
     - consistent_comma
     - no_comma
-  Enabled: true
+  Enabled: false
 
 Style/TrailingCommaInArrayLiteral:
   Description: 'Checks for trailing comma in array literals.'
@@ -368,7 +368,7 @@ Style/TrailingCommaInArrayLiteral:
     - comma
     - consistent_comma
     - no_comma
-  Enabled: true
+  Enabled: false
 
 Style/TrailingCommaInHashLiteral:
   Description: 'Checks for trailing comma in hash literals.'
@@ -378,7 +378,7 @@ Style/TrailingCommaInHashLiteral:
     - comma
     - consistent_comma
     - no_comma
-  Enabled: true
+  Enabled: false
 
 Style/TrivialAccessors:
   Description: 'Prefer attr_* methods to trivial readers/writers.'
