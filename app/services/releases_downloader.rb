@@ -1,6 +1,6 @@
 class ReleasesDownloader
-  def initialize(artist_id)
-    @artist_id = artist_id
+  def initialize(discogs_artist_id)
+    @discogs_artist_id = discogs_artist_id
   end
 
   def call
@@ -10,7 +10,7 @@ class ReleasesDownloader
   private
 
   def save_new_releases
-    artist = Artist.find_by(artist_id: @artist_id)
+    artist = Artist.find_by(discogs_artist_id: @discogs_artist_id)
 
     releases.each do |release|
       artist.releases.find_or_create_by(
@@ -27,7 +27,7 @@ class ReleasesDownloader
 
   def call_api
     token = Rails.application.credentials.discogs_token
-    response = HTTParty.get("https://api.discogs.com/artists/#{@artist_id}/releases?token=#{token}")
+    response = HTTParty.get("https://api.discogs.com/artists/#{@discogs_artist_id}/releases?token=#{token}")
     JSON.parse(response.body)
   end
 end

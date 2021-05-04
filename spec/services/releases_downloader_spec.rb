@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe ReleasesDownloader do
-  subject(:call) { described_class.new(artist.artist_id).call }
+  subject(:call) { described_class.new(artist.discogs_artist_id).call }
 
-  let(:discogs_url) { "https://api.discogs.com/artists/#{artist.artist_id}/releases?token=#{token}" }
+  let(:discogs_url) { "https://api.discogs.com/artists/#{artist.discogs_artist_id}/releases?token=#{token}" }
   let(:token) { Rails.application.credentials.discogs_token }
 
   let(:api_response) { File.read("spec/fixtures/artist_releases.json") }

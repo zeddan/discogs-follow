@@ -3,7 +3,7 @@ class NewReleasesWorker
 
   def perform
     Artist.all.each do |artist|
-      ArtistWorker.perform_async(artist.artist_id)
+      ArtistWorker.perform_async(artist.discogs_artist_id)
     end
   end
 end

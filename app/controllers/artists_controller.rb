@@ -20,7 +20,7 @@ class ArtistsController < ApplicationController
 
     respond_to do |format|
       if @artist.save
-        ArtistWorker.perform_async(@artist.artist_id)
+        ArtistWorker.perform_async(@artist.discogs_artist_id)
         format.html { redirect_to artists_url, notice: "you are now following #{@artist.name}" }
       else
         format.html { render :new }
@@ -52,6 +52,6 @@ class ArtistsController < ApplicationController
   end
 
   def artist_params
-    params.require(:artist).permit(:name, :artist_id)
+    params.require(:artist).permit(:name, :discogs_artist_id)
   end
 end
