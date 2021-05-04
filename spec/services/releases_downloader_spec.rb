@@ -10,7 +10,14 @@ RSpec.describe ReleasesDownloader do
   let(:releases) { JSON.parse(api_response)["releases"] }
   let(:request) { stub_request(:get, discogs_url).to_return(body: api_response) }
 
-  let(:artist) { create(:artist) }
+  let(:artist) do
+    create(
+      :artist,
+      releases: [
+        build(:release, discogs_release_id: releases.first["id"])
+      ]
+    )
+  end
 
   describe "#call" do
     before { request }
