@@ -14,7 +14,7 @@ class ReleasesDownloader
 
     releases.each do |release|
       artist.releases.find_or_create_by(
-        release_id: release["id"],
+        discogs_release_id: release["id"],
         title: release["title"],
         year: release["year"],
       )

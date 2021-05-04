@@ -1,6 +1,6 @@
 class Release < ApplicationRecord
   belongs_to :artist
-  validates :release_id, uniqueness: true
+  validates :discogs_release_id, uniqueness: true
 
   scope :latest, -> do
     joins(:artist).where(
