@@ -20,6 +20,7 @@ class ArtistsController < ApplicationController
 
     respond_to do |format|
       if @artist.save
+        ArtistWorker.perform_async(@artist.artist_id)
         format.html { redirect_to artists_url, notice: "you are now following #{@artist.name}" }
       else
         format.html { render :new }
