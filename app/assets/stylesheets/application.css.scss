@@ -26,7 +26,7 @@ body {
   background: #f9f9f9;
 }
 
-input[type=text] {
+input[type=text], input[type=email], input[type=password] {
   background: inherit;
   border: none;
   color: #333;
@@ -60,7 +60,7 @@ a, a:visited, a:hover, a:active {
   text-decoration: none;
 }
 
-.unfollow {
+.link-gray {
   color: darkgray;
 
   &:hover {
@@ -118,6 +118,10 @@ th, td {
   }
 }
 
-.yoyo {
-  display: flex;
+#user-box {
+  font-size: 0.8em;
+  text-align: right;
+  padding: 1em;
+  position: absolute;
+  right: 0;
 }

@@ -1,0 +1,18 @@
+<%= form_with(model: @user, local: true) do |f| %>
+  <div class="form-container">
+    <div class="form-label">email</div>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="form-container">
+    <div class="form-label">password</div>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="form-container">
+    <div class="form-label">password again</div>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <%= f.submit "create account" %>
+<% end %>
