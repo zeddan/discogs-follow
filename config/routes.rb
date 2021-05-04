@@ -1,7 +1,8 @@
 require "sidekiq/web"
+require "sidekiq_auth"
 
 Rails.application.routes.draw do
-  mount Sidekiq::Web => "/sidekiq"
+  mount Sidekiq::Web => "/sidekiq", constraints: SidekiqAuth.new
 
   root to: "artists#index"
 
