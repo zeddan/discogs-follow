@@ -1,0 +1,123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require normalize-rails
+ *= require_tree .
+ *= require_self
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Cutive+Mono&family=Overpass+Mono:wght@300;400&family=Space+Mono&family=VT323&display=swap');
+
+$red: #ff0054;
+
+body {
+  font-family: monospace;
+  font-size: 16px;
+  line-height: 1.618;
+  background: #f9f9f9;
+}
+
+input[type=text] {
+  background: inherit;
+  border: none;
+  color: #333;
+  border-bottom: 2px solid darkgray;
+
+  &:hover {
+    border-bottom: 2px dashed darkgray;
+  }
+}
+
+input[type=submit] {
+  background: inherit;
+  border: none;
+  border: 2px solid $red;
+  padding: 1em;
+  color: $red !important;
+  margin: 1em 0;
+
+  &:hover {
+    cursor: pointer;
+    border-style: dashed;
+  }
+}
+
+input:focus, texteara:focus { 
+  outline: none !important;
+  border-bottom: 2px dashed darkgray;
+}
+
+a, a:visited, a:hover, a:active {
+  text-decoration: none;
+}
+
+.unfollow {
+  color: darkgray;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.artist-link {
+  color: coral;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+table {
+  text-align: left;
+}
+
+th, td {
+  padding: 0 1em;
+}
+
+#mainframe {
+  display: flex;
+  justify-content: center;
+  padding: 5em;
+}
+
+.add-artist {
+  color: $red;
+  margin-block: 1em;
+  display: block;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.form-label {
+  display: block;
+  font-weight: 800;
+}
+
+.form-container {
+  margin: 1em 0;
+}
+
+.back {
+  margin: 1em 0;
+  color: darkgray;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.yoyo {
+  display: flex;
+}

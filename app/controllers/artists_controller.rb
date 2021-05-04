@@ -20,7 +20,7 @@ class ArtistsController < ApplicationController
 
     respond_to do |format|
       if @artist.save
-        format.html { redirect_to artists_url, notice: "Artist was successfully created." }
+        format.html { redirect_to artists_url, notice: "you are now following #{@artist.name}" }
       else
         format.html { render :new }
       end
@@ -30,7 +30,7 @@ class ArtistsController < ApplicationController
   def update
     respond_to do |format|
       if @artist.update(artist_params)
-        format.html { redirect_to @artist, notice: "Artist was successfully updated." }
+        format.html { redirect_to artists_url, notice: "#{@artist.name} was successfully updated" }
       else
         format.html { render :edit }
       end
@@ -40,7 +40,7 @@ class ArtistsController < ApplicationController
   def destroy
     @artist.destroy
     respond_to do |format|
-      format.html { redirect_to artists_url, notice: "Artist was successfully destroyed." }
+      format.html { redirect_to artists_url, notice: "you are no longer following #{@artist.name}" }
     end
   end
 

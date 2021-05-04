@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Artists</h1>
+<%= link_to "+ add artist", new_artist_path, class: "add-artist" %>
 
 <table>
   <thead>
     <tr>
-      <th>name</th>
-      <th>artist_id</th>
+      <th>artist</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,14 +13,15 @@
   <tbody>
     <% @artists.each do |artist| %>
       <tr>
-        <td><%= link_to artist.name, edit_artist_path(artist) %></td>
-        <td><%= artist.artist_id %></td>
-        <td><%= link_to "Remove", artist, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td>
+          <%= link_to artist.name, edit_artist_path(artist),
+              class: "artist-link" %>
+        </td>
+        <td>
+          <%= link_to "unfollow", artist, method: :delete,
+              class: "unfollow"  %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to "New Artist", new_artist_path %>

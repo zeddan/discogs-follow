@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
+  <div class="form-container">
+    <div class="form-label">name</div>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :artist_id %>
+  <div class="form-container">
+    <div class="form-label">id</div>
     <%= form.text_field :artist_id %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
+  <%= link_to "<< go back", artists_path, class: "back" %>
 <% end %>
