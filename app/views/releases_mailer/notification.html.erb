@@ -8,6 +8,10 @@
     <p>
       <% @releases.each do |release| %>
         <p>
+        <% if release.thumb.presence %>
+          <img style="height: 75px; width: 75px;" src="<%= release.thumb %>"/>
+          <br/>
+        <% end %>
           <a href="https://api.discogs.com/releases/<%= release.discogs_release_id %>">
             <strong><%= release.title %></strong> by <%= release.artist.name %>
           </a>

@@ -4,19 +4,23 @@ class ReleasesDownloader
   end
 
   def call
-    save_new_releases
+    save_releases
   end
 
   private
 
-  def save_new_releases
+  def save_releases
     artist = Artist.find_by(discogs_artist_id: @discogs_artist_id)
 
-    releases.each do |release|
-      artist.releases.find_or_create_by(
-        discogs_release_id: release["id"],
-        title: release["title"],
-        year: release["year"],
+    releases.each do |fetched_release|
+      release = Release.find_or_create_by(
+        discogs_release_id: fetched_release["id"],
+        artist_id: artist.id,
+      )
+      release.update(
+        title: fetched_release["title"],
+        year: fetched_release["year"],
+        thumb: fetched_release["thumb"]
       )
     end
   end
