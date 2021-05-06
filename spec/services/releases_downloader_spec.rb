@@ -3,32 +3,62 @@ require "rails_helper"
 RSpec.describe ReleasesDownloader do
   subject(:call) { described_class.new(artist.discogs_artist_id).call }
 
+  #### url things
   let(:credentials) do
     {
       key: Rails.application.credentials.discogs_key,
       secret: Rails.application.credentials.discogs_secret
     }
   end
-
-  let(:discogs_url) do
+  let(:releases_url) do
     [
       "https://api.discogs.com/artists/#{artist.discogs_artist_id}/releases?",
       "key=#{credentials[:key]}&",
       "secret=#{credentials[:secret]}"
     ].join
   end
+  let(:release_8003926_url) do
+    [
+      "https://api.discogs.com/releases/8003926?",
+      "key=#{credentials[:key]}&",
+      "secret=#{credentials[:secret]}"
+    ].join
+  end
+  let(:release_15204435_url) do
+    [
+      "https://api.discogs.com/releases/15204435?",
+      "key=#{credentials[:key]}&",
+      "secret=#{credentials[:secret]}"
+    ].join
+  end
+  #### -- url things
 
-  let(:api_response) { File.read("spec/fixtures/artist_releases.json") }
-  let(:releases) { JSON.parse(api_response)["releases"] }
-  let(:fake_release) { releases.last }
-  let(:request) { stub_request(:get, discogs_url).to_return(body: api_response) }
+  #### fixtures
+  let(:releases_response) { File.read("spec/fixtures/artist_releases.json") }
+  let(:release_8003926_response) { File.read("spec/fixtures/release_8003926.json") }
+  let(:release_15204435_response) { File.read("spec/fixtures/release_15204435.json") }
+  #### -- fixtures
 
+  #### request stubs
+  let(:releases_request) do
+    stub_request(:get, releases_url).to_return(body: releases_response)
+  end
+  let(:release_8003926_request) do
+    stub_request(:get, release_8003926_url).to_return(body: release_8003926_response)
+  end
+  let(:release_15204435_request) do
+    stub_request(:get, release_15204435_url).to_return(body: release_15204435_response)
+  end
+  #### -- request stubs
+
+  #### models
   let(:artist) do
     create(
       :artist,
       releases: [
         build(
           :release,
+          label_id: label.id,
           discogs_release_id: releases.first["id"],
           title: releases.first["title"],
           year: releases.first["year"],
@@ -37,14 +67,37 @@ RSpec.describe ReleasesDownloader do
       ]
     )
   end
+  let(:label) { create(:label) }
+  let(:releases) { JSON.parse(releases_response)["releases"] }
+  let(:fake_release) { releases.last }
+  #### -- models
+
 
   describe "#call" do
-    before { request }
+    before do
+      releases_request
+      release_8003926_request
+      release_15204435_request
+    end
 
-    it "sends request to discogs" do
+    it "requests releases from api" do
       call
 
-      expect(request).to have_been_made
+      expect(releases_request).to have_been_made
+    end
+
+    it "fetches label from api when not found" do
+      call
+
+      expect(release_8003926_request).to have_been_made
+    end
+
+    it "retrieves label from db if already existing" do
+      Label.create(discogs_label_id: 705679, name: "sewer sender")
+
+      call
+
+      expect(release_15204435_request).not_to have_been_made
     end
 
     it "saves new releases in db" do
@@ -56,6 +109,7 @@ RSpec.describe ReleasesDownloader do
     it "does not save as a new release when something changes" do
       Release.create(
         artist_id: artist.id,
+        label_id: label.id,
         discogs_release_id: fake_release["id"],
         title: fake_release["title"],
         year: fake_release["year"],
@@ -67,9 +121,10 @@ RSpec.describe ReleasesDownloader do
         .by(releases.size - artist.releases.size - 1)
     end
 
-    it "updates release thumbnail when changed from api", run: true do
+    it "updates release thumbnail when changed from api" do
       Release.create(
         artist_id: artist.id,
+        label_id: label.id,
         discogs_release_id: fake_release["id"],
         title: fake_release["title"],
         year: fake_release["year"],

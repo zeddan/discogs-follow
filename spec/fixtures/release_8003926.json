@@ -1,0 +1,125 @@
+{
+  "id": 8003926,
+  "status": "Accepted",
+  "year": 2015,
+  "resource_url": "https://api.discogs.com/releases/8003926",
+  "uri": "https://www.discogs.com/M%C3%A4teriet-Note-Repeats/release/8003926",
+  "artists": [
+    {
+      "name": "Mäteriet",
+      "anv": "",
+      "join": "",
+      "role": "",
+      "tracks": "",
+      "id": 4833444,
+      "resource_url": "https://api.discogs.com/artists/4833444"
+    }
+  ],
+  "artists_sort": "Mäteriet",
+  "labels": [
+    {
+      "name": "Tired Routine",
+      "catno": "TIRO001",
+      "entity_type": "1",
+      "entity_type_name": "Label",
+      "id": 955065,
+      "resource_url": "https://api.discogs.com/labels/955065"
+    }
+  ],
+  "series": [],
+  "companies": [],
+  "formats": [
+    {
+      "name": "Cassette",
+      "qty": "1",
+      "text": "C30",
+      "descriptions": [
+        "Stereo"
+      ]
+    }
+  ],
+  "data_quality": "Needs Vote",
+  "community": {
+    "have": 3,
+    "want": 3,
+    "rating": {
+      "count": 0,
+      "average": 0.0
+    },
+    "submitter": {
+      "username": "gsfo",
+      "resource_url": "https://api.discogs.com/users/gsfo"
+    },
+    "contributors": [
+      {
+        "username": "gsfo",
+        "resource_url": "https://api.discogs.com/users/gsfo"
+      }
+    ],
+    "data_quality": "Needs Vote",
+    "status": "Accepted"
+  },
+  "format_quantity": 1,
+  "date_added": "2016-01-20T06:29:31-08:00",
+  "date_changed": "2016-01-20T06:33:05-08:00",
+  "num_for_sale": 0,
+  "lowest_price": null,
+  "title": "Note Repeats",
+  "country": "Sweden",
+  "released": "2015-12-30",
+  "released_formatted": "30 Dec 2015",
+  "identifiers": [],
+  "genres": [
+    "Electronic"
+  ],
+  "styles": [
+    "Experimental",
+    "House",
+    "Abstract"
+  ],
+  "tracklist": [
+    {
+      "position": "1",
+      "type_": "track",
+      "title": "Lining",
+      "duration": "4:53"
+    },
+    {
+      "position": "2",
+      "type_": "track",
+      "title": "Kynne etc",
+      "duration": "5:09"
+    },
+    {
+      "position": "3",
+      "type_": "track",
+      "title": "Tuned Out",
+      "duration": "4:54"
+    },
+    {
+      "position": "4",
+      "type_": "track",
+      "title": "Phase Lock",
+      "duration": "5:51"
+    },
+    {
+      "position": "5",
+      "type_": "track",
+      "title": "Luna At Large",
+      "duration": "5:44"
+    }
+  ],
+  "extraartists": [],
+  "images": [
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 609
+    }
+  ],
+  "thumb": "",
+  "estimated_weight": 65
+}

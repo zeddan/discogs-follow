@@ -1,0 +1,180 @@
+{
+  "id": 15204435,
+  "status": "Accepted",
+  "year": 2020,
+  "resource_url": "https://api.discogs.com/releases/15204435",
+  "uri": "https://www.discogs.com/M%C3%A4teriet-Tenness/release/15204435",
+  "artists": [
+    {
+      "name": "Mäteriet",
+      "anv": "",
+      "join": "",
+      "role": "",
+      "tracks": "",
+      "id": 4833444,
+      "resource_url": "https://api.discogs.com/artists/4833444"
+    }
+  ],
+  "artists_sort": "Mäteriet",
+  "labels": [
+    {
+      "name": "sewer sender",
+      "catno": "SSNDR005",
+      "entity_type": "1",
+      "entity_type_name": "Label",
+      "id": 705679,
+      "resource_url": "https://api.discogs.com/labels/705679"
+    }
+  ],
+  "series": [],
+  "companies": [
+    {
+      "name": "Artefacts Mastering",
+      "catno": "",
+      "entity_type": "29",
+      "entity_type_name": "Mastered At",
+      "id": 303937,
+      "resource_url": "https://api.discogs.com/labels/303937"
+    }
+  ],
+  "formats": [
+    {
+      "name": "Vinyl",
+      "qty": "1",
+      "descriptions": [
+        "12\"",
+        "EP"
+      ]
+    }
+  ],
+  "data_quality": "Needs Vote",
+  "community": {
+    "have": 13,
+    "want": 3,
+    "rating": {
+      "count": 2,
+      "average": 5.0
+    },
+    "submitter": {
+      "username": "Uncle_Rodion",
+      "resource_url": "https://api.discogs.com/users/Uncle_Rodion"
+    },
+    "contributors": [
+      {
+        "username": "Uncle_Rodion",
+        "resource_url": "https://api.discogs.com/users/Uncle_Rodion"
+      },
+      {
+        "username": "martinou3000",
+        "resource_url": "https://api.discogs.com/users/martinou3000"
+      }
+    ],
+    "data_quality": "Needs Vote",
+    "status": "Accepted"
+  },
+  "format_quantity": 1,
+  "date_added": "2020-04-28T04:07:50-07:00",
+  "date_changed": "2020-05-04T06:16:09-07:00",
+  "num_for_sale": 9,
+  "lowest_price": 9.64,
+  "title": "Tenness",
+  "country": "Sweden",
+  "released": "2020-04-14",
+  "released_formatted": "14 Apr 2020",
+  "identifiers": [],
+  "videos": [
+    {
+      "uri": "https://www.youtube.com/watch?v=Fq_KucZWiTg",
+      "title": "Mäteriet - The Hon (SSNDR005)",
+      "description": "Label: sewer sender\nFormat: Vinyl 12 & Digital\nRelease Name: Tenness EP\nCountry: Sweden\nReleased: 2020\nGenre: Electronic\nStyle: Techno, Experimental \n\nhttps://www.discogs.com/M%C3%A4teriet-Tenness/release/15204435\nhttps://sewersender.bandcamp.com/album/t",
+      "duration": 425,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=MHC6mSWjwGA",
+      "title": "Mäteriet - Moniker (SSNDR005)",
+      "description": "Label: sewer sender\nFormat: Vinyl 12 & Digital\nRelease Name: Tenness EP\nCountry: Sweden\nReleased: 2020\nGenre: Electronic\nStyle: Techno, Experimental \n\nhttps://www.discogs.com/M%C3%A4teriet-Tenness/release/15204435\nhttps://sewersender.bandcamp.com/album/t",
+      "duration": 397,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=5Emo1l5c3E0",
+      "title": "Mäteriet - Rolling Thud (SSNDR005)",
+      "description": "Label: sewer sender\nFormat: Vinyl 12 & Digital\nRelease Name: Tenness EP\nCountry: Sweden\nReleased: 2020\nGenre: Electronic\nStyle: Techno, Experimental \n\nhttps://www.discogs.com/M%C3%A4teriet-Tenness/release/15204435\nhttps://sewersender.bandcamp.com/album/t",
+      "duration": 370,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=M3lXDBZf4lc",
+      "title": "Mäteriet - Rolling Thud (Shine Grooves Acoustic remix) (SSNDR005)",
+      "description": "Label: sewer sender\nFormat: Vinyl 12 & Digital\nRelease Name: Tenness EP\nCountry: Sweden\nReleased: 2020\nGenre: Electronic\nStyle: Techno, Experimental \n\nhttps://www.discogs.com/M%C3%A4teriet-Tenness/release/15204435\nhttps://sewersender.bandcamp.com/album/t",
+      "duration": 500,
+      "embed": true
+    }
+  ],
+  "genres": [
+    "Electronic"
+  ],
+  "styles": [
+    "Techno",
+    "Experimental"
+  ],
+  "tracklist": [
+    {
+      "position": "A1",
+      "type_": "track",
+      "title": "The Hon",
+      "duration": "7:00"
+    },
+    {
+      "position": "A2",
+      "type_": "track",
+      "title": "Moniker",
+      "duration": "6:23"
+    },
+    {
+      "position": "B1",
+      "type_": "track",
+      "title": "Rolling Thud",
+      "duration": "6:06"
+    },
+    {
+      "position": "B2",
+      "type_": "track",
+      "title": "Rolling Thud (Shine Grooves acoustic remix)",
+      "extraartists": [
+        {
+          "name": "Shine Grooves",
+          "anv": "",
+          "join": "",
+          "role": "Remix",
+          "tracks": "",
+          "id": 3213169,
+          "resource_url": "https://api.discogs.com/artists/3213169"
+        }
+      ],
+      "duration": "8:14"
+    }
+  ],
+  "extraartists": [],
+  "images": [
+    {
+      "type": "primary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    }
+  ],
+  "thumb": "",
+  "estimated_weight": 230
+}

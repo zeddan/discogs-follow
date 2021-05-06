@@ -6,6 +6,7 @@ FactoryBot.define do
 
   factory :release do
     discogs_release_id { FactoryBot.generate(:discogs_release_id) }
+    label { create(:label) }
     title { "Dancing Memory" }
     year { 2013 }
   end
