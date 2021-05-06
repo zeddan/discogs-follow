@@ -30,8 +30,22 @@ class ReleasesDownloader
   end
 
   def call_api
-    token = Rails.application.credentials.discogs_token
-    response = HTTParty.get("https://api.discogs.com/artists/#{@discogs_artist_id}/releases?token=#{token}")
+    response = HTTParty.get(url)
     JSON.parse(response.body)
+  end
+
+  def credentials
+    {
+      key: Rails.application.credentials.discogs_key,
+      secret: Rails.application.credentials.discogs_secret
+    }
+  end
+
+  def url
+    [
+      "https://api.discogs.com/artists/#{@discogs_artist_id}/releases?",
+      "key=#{credentials[:key]}&",
+      "secret=#{credentials[:secret]}"
+    ].join
   end
 end
