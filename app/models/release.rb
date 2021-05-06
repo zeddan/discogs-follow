@@ -1,5 +1,6 @@
 class Release < ApplicationRecord
   belongs_to :artist
+  belongs_to :label
   validates :discogs_release_id, uniqueness: true
 
   scope :latest, -> do
