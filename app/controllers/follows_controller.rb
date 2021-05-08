@@ -7,7 +7,7 @@ class FollowsController < ApplicationController
     follow = Follow.new(followable: @followable, user: current_user)
     respond_to do |format|
       if follow.save!
-        download_discogs_data(follow) unless Rails.env.development?
+        download_discogs_data(follow)
         format.html do
           redirect_to root_url,
                       notice: "you are now following #{follow.followable.name}"

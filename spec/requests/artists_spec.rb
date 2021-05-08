@@ -5,10 +5,12 @@ RSpec.describe "Artists", type: :request do
   let(:user) { create(:user) }
   let(:session) { { email: user.email, password: user.password } }
 
-  describe "POST /artists/:id/follows" do
+  describe "POST /artists/follows" do
     before do
       post "/login", params: { session: session }
-      post "/artists/#{artist.id}/follows"
+      post custom_artist_follows_path, params: {
+        artist: { discogs_artist_id: artist.discogs_artist_id }
+      }
     end
 
     it "creates a new artist following" do
@@ -22,7 +24,7 @@ RSpec.describe "Artists", type: :request do
     before do
       follow = Follow.create(followable: artist, user: user)
       post "/login", params: { session: session }
-      delete "/artists/#{artist.id}/follows/#{follow.id}"
+      delete artist_follow_path(artist.id, follow.id)
     end
 
     it "removes an artist following" do

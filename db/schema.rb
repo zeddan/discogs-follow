@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_215348) do
+ActiveRecord::Schema.define(version: 2021_05_08_162105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_215348) do
     t.string "thumb"
     t.bigint "label_id"
     t.index ["artist_id"], name: "index_releases_on_artist_id"
-    t.index ["discogs_release_id"], name: "index_releases_on_discogs_release_id", unique: true
+    t.index ["discogs_release_id", "label_id"], name: "index_releases_on_discogs_release_id_and_label_id", unique: true
     t.index ["label_id"], name: "index_releases_on_label_id"
   end
 

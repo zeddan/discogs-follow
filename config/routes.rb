@@ -6,14 +6,26 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  # resources :follows
-
   resources :artists do
-    resources :follows, module: :artists
+    resources :follows, except: %i[new create], module: :artists
     collection do
-      resources :follows, module: :artists, only: %i[new create]
+      resources :follows,
+                module: :artists,
+                only: %i[new create],
+                as: :custom_artist_follows
     end
   end
+
+  resources :labels do
+    resources :follows, except: %i[new create], module: :labels
+    collection do
+      resources :follows,
+                module: :labels,
+                only: %i[new create],
+                as: :custom_labels_follows
+    end
+  end
+
 
   get "/hehe", to: "users#new"
   get "/login", to: "sessions#new"

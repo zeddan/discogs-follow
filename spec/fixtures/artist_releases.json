@@ -31,6 +31,23 @@
          }
       },
       {
+         "id": 2114365,
+         "title": "Pool",
+         "type": "master",
+         "main_release": 18623872,
+         "artist": "M\u00e4teriet",
+         "role": "Main",
+         "resource_url": "https://api.discogs.com/masters/2114365",
+         "year": 2021,
+         "thumb": "",
+         "stats": {
+            "community": {
+               "in_wantlist": 4,
+               "in_collection": 3
+            }
+         }
+      },
+      {
          "id": 15204435,
          "status": "Accepted",
          "type": "release",

@@ -1,0 +1,182 @@
+{
+  "id": 18623872,
+  "status": "Accepted",
+  "year": 2021,
+  "resource_url": "https://api.discogs.com/releases/18623872",
+  "uri": "https://www.discogs.com/Skee-Mask-Pool/release/18623872",
+  "artists": [
+    {
+      "name": "Mäteriet",
+      "anv": "",
+      "join": "",
+      "role": "",
+      "tracks": "",
+      "id": 4833444,
+      "resource_url": "https://api.discogs.com/artists/4833444",
+      "thumbnail_url": ""
+    }
+  ],
+  "artists_sort": "Mäteriet",
+  "labels": [
+    {
+      "name": "Ilian Tape",
+      "catno": "ITLP09",
+      "entity_type": "1",
+      "entity_type_name": "Label",
+      "id": 97715,
+      "resource_url": "https://api.discogs.com/labels/97715",
+      "thumbnail_url": "https://img.discogs.com/GdpFzqAuu1SDqeMHPogR-McBqKU=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/L-97715-1497195248-7326.jpeg.jpg"
+    }
+  ],
+  "series": [],
+  "companies": [],
+  "formats": [
+    {
+      "name": "File",
+      "qty": "18",
+      "descriptions": [
+        "MP3",
+        "Album"
+      ]
+    }
+  ],
+  "data_quality": "Needs Vote",
+  "community": {
+    "have": 3,
+    "want": 4,
+    "rating": {
+      "count": 1,
+      "average": 5.0
+    },
+    "submitter": {
+      "username": "svnsetwaves",
+      "resource_url": "https://api.discogs.com/users/svnsetwaves"
+    },
+    "contributors": [
+      {
+        "username": "svnsetwaves",
+        "resource_url": "https://api.discogs.com/users/svnsetwaves"
+      }
+    ],
+    "data_quality": "Needs Vote",
+    "status": "Accepted"
+  },
+  "format_quantity": 0,
+  "date_added": "2021-05-07T01:56:46-07:00",
+  "date_changed": "2021-05-07T02:12:54-07:00",
+  "num_for_sale": 0,
+  "lowest_price": null,
+  "master_id": 2114365,
+  "master_url": "https://api.discogs.com/masters/2114365",
+  "title": "Pool",
+  "country": "Germany",
+  "released": "2021-05-07",
+  "released_formatted": "07 May 2021",
+  "identifiers": [],
+  "videos": [
+    {
+      "uri": "https://www.youtube.com/watch?v=kR1mw9xeZXw",
+      "title": "Skee Mask - LFO",
+      "description": "ITLP09 Skee Mask - Pool\nMastered at the Ilian Tape Space Studio\nhttps://iliantape.bandcamp.com/album/itlp09-skee-mask-pool",
+      "duration": 295,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=L5DlJVrPMkw",
+      "title": "Skee Mask - Rio Dub",
+      "description": "ITLP09 Skee Mask - Pool\nMastered at the Ilian Tape Space Studio\nhttps://iliantape.bandcamp.com/album/itlp09-skee-mask-pool",
+      "duration": 346,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=NHetr2VC4Qk",
+      "title": "Skee Mask - Dolan Tours",
+      "description": "ITLP09 Skee Mask - Pool\nMastered at the Ilian Tape Space Studio\nhttps://iliantape.bandcamp.com/album/itlp09-skee-mask-pool",
+      "duration": 400,
+      "embed": true
+    }
+  ],
+  "genres": [
+    "Electronic"
+  ],
+  "styles": [
+    "Techno",
+    "Ambient",
+    "Breakbeat",
+    "Drum n Bass"
+  ],
+  "tracklist": [
+    {
+      "position": "1",
+      "type_": "track",
+      "title": "Nvivo",
+      "duration": "5:33"
+    },
+    {
+      "position": "2",
+      "type_": "track",
+      "title": "Stone Cold 369",
+      "duration": "6:04"
+    },
+    {
+      "position": "3",
+      "type_": "track",
+      "title": "LFO",
+      "duration": "4:54"
+    }
+  ],
+  "extraartists": [
+    {
+      "name": "Lara Köcke",
+      "anv": "",
+      "join": "",
+      "role": "Artwork",
+      "tracks": "",
+      "id": 9286873,
+      "resource_url": "https://api.discogs.com/artists/9286873",
+      "thumbnail_url": ""
+    },
+    {
+      "name": "Klaus Arnold",
+      "anv": "",
+      "join": "",
+      "role": "Mastered By",
+      "tracks": "",
+      "id": 1075959,
+      "resource_url": "https://api.discogs.com/artists/1075959",
+      "thumbnail_url": ""
+    },
+    {
+      "name": "Zenker Brothers",
+      "anv": "",
+      "join": "",
+      "role": "Mastered By",
+      "tracks": "",
+      "id": 2386461,
+      "resource_url": "https://api.discogs.com/artists/2386461",
+      "thumbnail_url": "https://img.discogs.com/CNi43YIfyFmxreGK_yOW7yVE9FA=/500x500/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/A-2386461-1382620962-1608.jpeg.jpg"
+    },
+    {
+      "name": "Skee Mask",
+      "anv": "",
+      "join": "",
+      "role": "Written By, Producer",
+      "tracks": "",
+      "id": 4039564,
+      "resource_url": "https://api.discogs.com/artists/4039564",
+      "thumbnail_url": "https://img.discogs.com/U1IHy1mjwX4rMrmVl-TKkQMo5yA=/366x366/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/A-4039564-1433154617-5575.png.jpg"
+    }
+  ],
+  "images": [
+    {
+      "type": "secondary",
+      "uri": "https://img.discogs.com/xwQUTSA8dOinLSRKk4NWflA1lHg=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-18623872-1620377808-8743.jpeg.jpg",
+      "resource_url": "https://img.discogs.com/xwQUTSA8dOinLSRKk4NWflA1lHg=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-18623872-1620377808-8743.jpeg.jpg",
+      "uri150": "https://img.discogs.com/LIwgT-wl9riLp9CbI-sBpDEWjkE=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-18623872-1620377808-8743.jpeg.jpg",
+      "width": 600,
+      "height": 600
+    }
+  ],
+  "thumb": "https://img.discogs.com/LIwgT-wl9riLp9CbI-sBpDEWjkE=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-18623872-1620377808-8743.jpeg.jpg",
+  "blocked_from_sale": false
+}

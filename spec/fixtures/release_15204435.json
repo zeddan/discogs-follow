@@ -12,7 +12,8 @@
       "role": "",
       "tracks": "",
       "id": 4833444,
-      "resource_url": "https://api.discogs.com/artists/4833444"
+      "resource_url": "https://api.discogs.com/artists/4833444",
+      "thumbnail_url": ""
     }
   ],
   "artists_sort": "Mäteriet",
@@ -23,7 +24,8 @@
       "entity_type": "1",
       "entity_type_name": "Label",
       "id": 705679,
-      "resource_url": "https://api.discogs.com/labels/705679"
+      "resource_url": "https://api.discogs.com/labels/705679",
+      "thumbnail_url": "https://img.discogs.com/kVBv0nUVmxQOzcGZ3-zTpOdVDDA=/fit-in/560x560/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/L-705679-1403562133-4541.jpeg.jpg"
     }
   ],
   "series": [],
@@ -34,7 +36,8 @@
       "entity_type": "29",
       "entity_type_name": "Mastered At",
       "id": 303937,
-      "resource_url": "https://api.discogs.com/labels/303937"
+      "resource_url": "https://api.discogs.com/labels/303937",
+      "thumbnail_url": "https://img.discogs.com/wv4ybgz0XIMxseOZerw1PXAzHdg=/fit-in/600x270/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/L-303937-1570103258-9539.jpeg.jpg"
     }
   ],
   "formats": [
@@ -76,7 +79,7 @@
   "date_added": "2020-04-28T04:07:50-07:00",
   "date_changed": "2020-05-04T06:16:09-07:00",
   "num_for_sale": 9,
-  "lowest_price": 9.64,
+  "lowest_price": 81.07,
   "title": "Tenness",
   "country": "Sweden",
   "released": "2020-04-14",
@@ -150,7 +153,8 @@
           "role": "Remix",
           "tracks": "",
           "id": 3213169,
-          "resource_url": "https://api.discogs.com/artists/3213169"
+          "resource_url": "https://api.discogs.com/artists/3213169",
+          "thumbnail_url": "https://img.discogs.com/nSuuPJ5C-kHmUXVCEni_DVgsvvA=/600x399/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/A-3213169-1548964214-3818.jpeg.jpg"
         }
       ],
       "duration": "8:14"
@@ -160,21 +164,22 @@
   "images": [
     {
       "type": "primary",
-      "uri": "",
-      "resource_url": "",
-      "uri150": "",
+      "uri": "https://img.discogs.com/FT6qgN2pjkURLa-yL2tzFpWeEeU=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-15204435-1588072078-8371.jpeg.jpg",
+      "resource_url": "https://img.discogs.com/FT6qgN2pjkURLa-yL2tzFpWeEeU=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-15204435-1588072078-8371.jpeg.jpg",
+      "uri150": "https://img.discogs.com/owCLtDzs75KdM3I60UsWxNEmmyE=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-15204435-1588072078-8371.jpeg.jpg",
       "width": 600,
       "height": 600
     },
     {
       "type": "secondary",
-      "uri": "",
-      "resource_url": "",
-      "uri150": "",
+      "uri": "https://img.discogs.com/HjRHDkk5KBo61qLBKASvAA8StEU=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-15204435-1588072071-6569.jpeg.jpg",
+      "resource_url": "https://img.discogs.com/HjRHDkk5KBo61qLBKASvAA8StEU=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-15204435-1588072071-6569.jpeg.jpg",
+      "uri150": "https://img.discogs.com/KI12oCsVlM9KWSYAW3WG8nI5gow=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-15204435-1588072071-6569.jpeg.jpg",
       "width": 600,
       "height": 600
     }
   ],
-  "thumb": "",
-  "estimated_weight": 230
+  "thumb": "https://img.discogs.com/owCLtDzs75KdM3I60UsWxNEmmyE=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-15204435-1588072078-8371.jpeg.jpg",
+  "estimated_weight": 230,
+  "blocked_from_sale": false
 }

@@ -1,20 +1,21 @@
 class LabelDownloader
-  def initialize(name, release_id)
-    @name = name
+  def initialize(release_id)
     @release_id = release_id
   end
 
   def call
-    save_label
+    save_labels
   end
 
   private
 
-  def save_label
+  def save_labels
     release = call_api
-    label = release["labels"].detect { |key| key["name"] == @name }
-    label_id = label["id"] unless label.nil?
-    Label.create!(discogs_label_id: label_id, name: @name)
+    release["labels"].map do |fetched_label|
+      label = Label.find_or_create_by!(discogs_label_id: fetched_label["id"])
+      label.update(name: fetched_label["name"])
+      label
+    end
   end
 
   def call_api

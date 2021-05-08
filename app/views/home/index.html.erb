@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to "+ add artist", "artists/follows/new", class: "add-artist" %>
+<%= link_to "+ add artist", new_custom_artist_follow_path, class: "add-artist" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>artist</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% current_user.artist_follows.each do |follow| %>
+<% unless current_user.artist_follows.empty? %>
+  <table>
+    <thead>
       <tr>
-        <td>
-          <%= link_to follow.followable.name, edit_artist_path(follow.followable),
-              class: "artist-link" %>
-        </td>
-        <td>
-          <%= link_to "unfollow",
-                      artist_follow_path(follow.followable_id, follow.id),
-                      method: :delete,
-              class: "link-gray" %>
-        </td>
+        <th>artist</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% current_user.artist_follows.each do |follow| %>
+        <tr>
+          <td>
+            <%= link_to follow.followable.name, edit_artist_path(follow.followable),
+                class: "artist-link" %>
+          </td>
+          <td>
+            <%= link_to "unfollow",
+                        artist_follow_path(follow.followable_id, follow.id),
+                        method: :delete,
+                class: "link-gray" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

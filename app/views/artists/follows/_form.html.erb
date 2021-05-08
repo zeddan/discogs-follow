@@ -1,4 +1,4 @@
-<%= form_with(model: artist, local: true, url: follows_path, method: :post) do |form| %>
+<%= form_with(model: artist, local: true, url: custom_artist_follows_path) do |form| %>
   <% if artist.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
