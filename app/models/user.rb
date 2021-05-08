@@ -11,4 +11,8 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 8 }
+
+  def artist_follows
+    follows.where(followable_type: "Artist")
+  end
 end

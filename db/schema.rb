@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_203840) do
+ActiveRecord::Schema.define(version: 2021_05_06_215348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2021_05_06_203840) do
     t.datetime "updated_at", null: false
     t.bigint "label_id"
     t.bigint "user_id"
+    t.bigint "artist_id"
+    t.index ["artist_id"], name: "index_follows_on_artist_id"
     t.index ["label_id"], name: "index_follows_on_label_id"
     t.index ["user_id"], name: "index_follows_on_user_id"
   end
@@ -64,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_203840) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "follows", "artists"
   add_foreign_key "follows", "labels"
   add_foreign_key "follows", "users"
   add_foreign_key "releases", "artists"

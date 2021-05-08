@@ -4,7 +4,16 @@ require "sidekiq_auth"
 Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq", constraints: SidekiqAuth.new
 
-  root to: "artists#index"
+  root to: "home#index"
+
+  # resources :follows
+
+  resources :artists do
+    resources :follows, module: :artists
+    collection do
+      resources :follows, module: :artists, only: %i[new create]
+    end
+  end
 
   get "/hehe", to: "users#new"
   get "/login", to: "sessions#new"
@@ -12,5 +21,5 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   resources :users, only: %i[new create]
-  resources :artists
+  # resources :artists
 end
