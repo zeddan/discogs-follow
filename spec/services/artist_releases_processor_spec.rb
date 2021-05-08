@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe ReleasesDownloader do
+RSpec.describe ArtistReleasesProcessor do
   subject(:call) { described_class.new(artist.discogs_artist_id).call }
 
   #### url things
@@ -78,7 +78,7 @@ RSpec.describe ReleasesDownloader do
       ]
     )
   end
-  let(:label) { create(:label, discogs_label_id: 955065)}
+  let(:label) { create(:label, discogs_label_id: 955065) }
   let(:releases) { JSON.parse(releases_response)["releases"] }
   let(:new_release) { releases.detect { |r| r["id"] == 15204435 } }
   let(:new_release_detail) { JSON.parse(release_15204435_response) }
@@ -92,10 +92,16 @@ RSpec.describe ReleasesDownloader do
       release_18623872_request
     end
 
-    it "requests releases from api" do
+    it "requests the artist's releases from api" do
       call
 
       expect(releases_request).to have_been_made
+    end
+
+    it "requests single release from api" do
+      call
+
+      expect(release_18623872_request).to have_been_made
     end
 
     it "saves new releases in db" do
@@ -106,12 +112,10 @@ RSpec.describe ReleasesDownloader do
 
     it "does not save as a new release when something changes" do
       artist.releases.first.update(thumb: "i will change")
-      incoming_release_ids = releases.map { |r| r["id"] }
-      existing_releases = Release.where(discogs_release_id: incoming_release_ids)
 
       expect { call }
         .to change(Release, :count)
-        .by(incoming_release_ids.size - existing_releases.size)
+        .by(releases.size - artist.releases.size)
     end
 
     it "updates release thumbnail when changed from api" do

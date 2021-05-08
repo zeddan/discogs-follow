@@ -8,7 +8,7 @@ RSpec.describe NewReleasesWorker, type: :worker do
     it "runs the new releases handler" do
       perform
 
-      # expect(ReleasesDownloader.new).to receive(:call)
+      # expect(ArtistReleasesProcessor.new).to receive(:call)
     end
   end
 end

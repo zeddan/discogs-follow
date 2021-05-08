@@ -3,6 +3,6 @@ class ArtistWorker
 
   def perform(discogs_artist_id)
     Rails.logger.info("ArtistWorker: Downloading releases for discogs_artist_id=#{discogs_artist_id}")
-    ReleasesDownloader.new(discogs_artist_id).call
+    ArtistReleasesProcessor.new(discogs_artist_id).call
   end
 end
