@@ -70,18 +70,21 @@ RSpec.describe ArtistReleasesProcessor do
         build(
           :release,
           label_id: label.id,
-          discogs_release_id: releases.first["id"],
-          title: releases.first["title"],
-          year: releases.first["year"],
-          thumb: releases.first["thumb"]
+          discogs_release_id: existing_release["id"],
+          uri: existing_release_detail["uri"],
+          title: existing_release["title"],
+          year: existing_release["year"],
+          thumb: existing_release["thumb"]
         )
       ]
     )
   end
-  let(:label) { create(:label, discogs_label_id: 955065) }
+  let(:label) { create(:label, discogs_label_id: 97715) }
   let(:releases) { JSON.parse(releases_response)["releases"] }
-  let(:new_release) { releases.detect { |r| r["id"] == 15204435 } }
-  let(:new_release_detail) { JSON.parse(release_15204435_response) }
+  let(:existing_release) { releases.detect { |r| r["id"] == 15204435 } }
+  let(:existing_release_detail) { JSON.parse(release_15204435_response) }
+  let(:latest_release) { releases.detect { |r| r["main_release"] == 18623872 } }
+  let(:latest_release_detail) { JSON.parse(release_18623872_response) }
   #### -- models
 
   describe "#call" do
@@ -104,62 +107,81 @@ RSpec.describe ArtistReleasesProcessor do
       expect(release_18623872_request).to have_been_made
     end
 
-    it "saves new releases in db" do
-      expect { call }
-        .to change(Release, :count)
-        .by(releases.size - artist.releases.size)
-    end
-
-    it "does not save as a new release when something changes" do
-      artist.releases.first.update(thumb: "i will change")
-
-      expect { call }
-        .to change(Release, :count)
-        .by(releases.size - artist.releases.size)
-    end
-
-    it "updates release thumbnail when changed from api" do
-      artist.releases.first.update(thumb: "i will change")
+    it "selects the latest release" do
+      release_id = latest_release["main_release"] || latest_release["main_release"]
 
       call
 
-      updated_release = artist.releases.find_by(discogs_release_id: new_release["id"])
-      expect(updated_release.thumb).to eq(new_release["thumb"])
+      saved_release = Release.find_by(discogs_release_id: release_id)
+      expect(saved_release).to be_present
+    end
+
+    it "does not fetch other releases than the latest" do
+      expect { call }.to change(Release, :count).by(1)
+    end
+
+    it "does not save as a new release when something changes" do
+      artist.releases.create(
+        label_id: label.id,
+        discogs_release_id: latest_release["main_release"],
+        uri: latest_release_detail["uri"],
+        title: latest_release["title"],
+        year: latest_release["year"],
+        thumb: "i will change"
+      )
+
+      expect { call }.to change(Release, :count).by(0)
+    end
+
+    it "updates release thumbnail when changed from api" do
+      artist.releases.create(
+        label_id: label.id,
+        discogs_release_id: latest_release["main_release"],
+        uri: latest_release_detail["uri"],
+        title: latest_release["title"],
+        year: latest_release["year"],
+        thumb: "i will change"
+      )
+
+      call
+
+      updated_release = artist.releases.find_by(discogs_release_id: latest_release["main_release"])
+      expect(updated_release.thumb).to eq(latest_release["thumb"])
     end
 
     it "saves discogs release id" do
       call
 
-      saved_release = Release.find_by(discogs_release_id: new_release["id"])
+      saved_release = Release.find_by(discogs_release_id: latest_release["main_release"])
       expect(saved_release).to be_present
     end
 
     it "saves title" do
       call
 
-      saved_release = Release.find_by(discogs_release_id: new_release["id"])
-      expect(saved_release.title).to eq(new_release["title"])
+      saved_release = Release.find_by(discogs_release_id: latest_release["main_release"])
+      expect(saved_release.title).to eq(latest_release["title"])
     end
 
     it "saves release year" do
       call
 
-      saved_release = Release.find_by(discogs_release_id: new_release["id"])
-      expect(saved_release.year).to eq(new_release["year"])
+      saved_release = Release.find_by(discogs_release_id: latest_release["main_release"])
+      expect(saved_release.year).to eq(latest_release["year"])
     end
 
     it "saves thumbnail image" do
       call
 
-      saved_release = Release.find_by(discogs_release_id: new_release["id"])
-      expect(saved_release.thumb).to eq(new_release["thumb"])
+      saved_release = Release.find_by(discogs_release_id: latest_release["main_release"])
+      expect(saved_release.thumb).to eq(latest_release["thumb"])
     end
 
     it "saves uri" do
       call
 
-      saved_release = Release.find_by(discogs_release_id: new_release["id"])
-      expect(saved_release.uri).to eq(new_release_detail["uri"])
+      saved_release = Release.find_by(discogs_release_id: latest_release["main_release"])
+      expect(saved_release.uri).to eq(latest_release_detail["uri"])
     end
   end
 end

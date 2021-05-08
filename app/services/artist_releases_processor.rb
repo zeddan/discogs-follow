@@ -11,24 +11,23 @@ class ArtistReleasesProcessor
 
   def save_releases
     releases = Discogs::ArtistReleases.new(@discogs_artist_id).call
-    releases.each do |fetched_release|
-      release = Discogs::Release.new(release_id(fetched_release)).call
-      labels = find_or_create_labels(release)
+    fetched_release = releases.max_by { |release| release["year"] }
+    release = Discogs::Release.new(release_id(fetched_release)).call
+    labels = find_or_create_labels(release)
 
-      labels.each do |label|
-        new_release = Release.find_or_initialize_by(
-          discogs_release_id: release_id(release),
-          label: label
-        )
+    labels.each do |label|
+      new_release = Release.find_or_initialize_by(
+        discogs_release_id: release_id(release),
+        label: label
+      )
 
-        new_release.update!(
-          artist: artist,
-          uri: release["uri"],
-          title: fetched_release["title"],
-          year: fetched_release["year"],
-          thumb: fetched_release["thumb"]
-        )
-      end
+      new_release.update!(
+        artist: artist,
+        uri: release["uri"],
+        title: fetched_release["title"],
+        year: fetched_release["year"],
+        thumb: fetched_release["thumb"]
+      )
     end
   end
 
