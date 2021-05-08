@@ -80,7 +80,8 @@ RSpec.describe ReleasesDownloader do
   end
   let(:label) { create(:label, discogs_label_id: 955065)}
   let(:releases) { JSON.parse(releases_response)["releases"] }
-  let(:new_release) { releases.last }
+  let(:new_release) { releases.detect { |r| r["id"] == 15204435 } }
+  let(:new_release_detail) { JSON.parse(release_15204435_response) }
   #### -- models
 
   describe "#call" do
@@ -150,11 +151,11 @@ RSpec.describe ReleasesDownloader do
       expect(saved_release.thumb).to eq(new_release["thumb"])
     end
 
-    it "saves thumbnail image" do
+    it "saves uri" do
       call
 
       saved_release = Release.find_by(discogs_release_id: new_release["id"])
-      expect(saved_release.thumb).to eq(new_release["thumb"])
+      expect(saved_release.uri).to eq(new_release_detail["uri"])
     end
   end
 end

@@ -13,16 +13,18 @@ class ReleasesDownloader
     artist = Artist.find_by(discogs_artist_id: @discogs_artist_id)
 
     main_releases.each do |fetched_release|
-      labels = find_or_create_labels(fetched_release)
+      release = Discogs::Release.new(release_id(fetched_release)).call
+      labels = find_or_create_labels(release)
 
       labels.each do |label|
-        release = Release.find_or_initialize_by(
+        new_release = Release.find_or_initialize_by(
           discogs_release_id: fetched_release["main_release"] || fetched_release["id"],
           label: label
         )
 
-        release.update!(
+        new_release.update!(
           artist_id: artist.id,
+          uri: release["uri"],
           title: fetched_release["title"],
           year: fetched_release["year"],
           thumb: fetched_release["thumb"]
@@ -31,13 +33,17 @@ class ReleasesDownloader
     end
   end
 
-  def find_or_create_labels(release)
+  def release_id(release)
     case release["type"]
     when "release"
-      LabelDownloader.new(release["id"]).call
+      release["id"]
     when "master"
-      LabelDownloader.new(release["main_release"]).call
+      release["main_release"]
     end
+  end
+
+  def find_or_create_labels(release)
+    LabelProcessor.new(release).call
   end
 
   def main_releases
