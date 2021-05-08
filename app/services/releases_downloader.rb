@@ -12,7 +12,7 @@ class ReleasesDownloader
   def save_releases
     artist = Artist.find_by(discogs_artist_id: @discogs_artist_id)
 
-    releases.each do |fetched_release|
+    main_releases.each do |fetched_release|
       labels = find_or_create_labels(fetched_release)
 
       labels.each do |label|
@@ -38,6 +38,11 @@ class ReleasesDownloader
     when "master"
       LabelDownloader.new(release["main_release"]).call
     end
+  end
+
+  def main_releases
+    # filter out Remix and TrackAppearance etc, let's use main
+    releases.select { |r| r["role"].casecmp("main").zero? }
   end
 
   def releases
