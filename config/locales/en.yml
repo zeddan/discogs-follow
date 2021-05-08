@@ -30,4 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  release:
+    zero: "releases"
+    one: "release"
+    other: "releases"
   hello: "Hello world"

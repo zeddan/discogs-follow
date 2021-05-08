@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>There are <%= @releases.size %> new releases waiting for you!</p>
+    <p>There are <%= @releases.size %> new <%= t(:release, count: releases.size) %> waiting for you!</p>
     <p>
       <% @releases.each do |release| %>
         <p>
