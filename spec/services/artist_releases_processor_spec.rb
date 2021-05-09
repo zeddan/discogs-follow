@@ -14,6 +14,8 @@ RSpec.describe ArtistReleasesProcessor do
     [
       "https://api.discogs.com/artists/#{artist.discogs_artist_id}/releases?",
       "per_page=100&",
+      "sort=year",
+      "sort_order=desc",
       "key=#{credentials[:key]}&",
       "secret=#{credentials[:secret]}"
     ].join
@@ -21,7 +23,6 @@ RSpec.describe ArtistReleasesProcessor do
   let(:release_8003926_url) do
     [
       "https://api.discogs.com/releases/8003926?",
-      "per_page=100&",
       "key=#{credentials[:key]}&",
       "secret=#{credentials[:secret]}"
     ].join
@@ -29,7 +30,6 @@ RSpec.describe ArtistReleasesProcessor do
   let(:release_15204435_url) do
     [
       "https://api.discogs.com/releases/15204435?",
-      "per_page=100&",
       "key=#{credentials[:key]}&",
       "secret=#{credentials[:secret]}"
     ].join
@@ -37,7 +37,6 @@ RSpec.describe ArtistReleasesProcessor do
   let(:release_18623872_url) do
     [
       "https://api.discogs.com/releases/18623872?",
-      "per_page=100&",
       "key=#{credentials[:key]}&",
       "secret=#{credentials[:secret]}"
     ].join
@@ -70,11 +69,13 @@ RSpec.describe ArtistReleasesProcessor do
   let(:artist) do
     create(
       :artist,
+      discogs_artist_id: 4833444,
       releases: [
         build(
           :release,
           label_id: label.id,
           discogs_release_id: existing_release["id"],
+          release_date: existing_release_detail["released"],
           uri: existing_release_detail["uri"],
           title: existing_release["title"],
           year: existing_release["year"],
@@ -105,14 +106,21 @@ RSpec.describe ArtistReleasesProcessor do
       expect(releases_request).to have_been_made
     end
 
-    it "requests single release from api" do
+    it "requests multiple releases on same page released same year" do
       call
 
       expect(release_18623872_request).to have_been_made
+      expect(release_15204435_request).to have_been_made
+    end
+
+    it "does not request old releases" do
+      call
+
+      expect(release_8003926_request).not_to have_been_made
     end
 
     it "selects the latest release" do
-      release_id = latest_release["main_release"] || latest_release["main_release"]
+      release_id = latest_release["main_release"]
 
       call
 
@@ -120,13 +128,14 @@ RSpec.describe ArtistReleasesProcessor do
       expect(saved_release).to be_present
     end
 
-    it "does not fetch other releases than the latest" do
+    it "does not save other releases than the latest" do
       expect { call }.to change(Release, :count).by(1)
     end
 
     it "does not save as a new release when something changes" do
       artist.releases.create(
         label_id: label.id,
+        release_date: latest_release_detail["released"],
         discogs_release_id: latest_release["main_release"],
         uri: latest_release_detail["uri"],
         title: latest_release["title"],
@@ -134,12 +143,13 @@ RSpec.describe ArtistReleasesProcessor do
         thumb: "i will change"
       )
 
-      expect { call }.to change(Release, :count).by(0)
+      expect { call }.not_to change(Release, :count)
     end
 
     it "updates release thumbnail when changed from api" do
       artist.releases.create(
         label_id: label.id,
+        release_date: latest_release_detail["released"],
         discogs_release_id: latest_release["main_release"],
         uri: latest_release_detail["uri"],
         title: latest_release["title"],
@@ -186,6 +196,13 @@ RSpec.describe ArtistReleasesProcessor do
 
       saved_release = Release.find_by(discogs_release_id: latest_release["main_release"])
       expect(saved_release.uri).to eq(latest_release_detail["uri"])
+    end
+
+    it "saves release with the latest release date" do
+      call
+
+      saved_release = Release.find_by(discogs_release_id: latest_release["main_release"])
+      expect(saved_release.release_date).to eq(latest_release_detail["released"])
     end
   end
 end

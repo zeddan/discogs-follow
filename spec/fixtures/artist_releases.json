@@ -1,32 +1,35 @@
 {
    "pagination": {
       "page": 1,
-      "pages": 1,
-      "per_page": 50,
-      "items": 2,
-      "urls": {}
+      "pages": 2,
+      "per_page": 100,
+      "items": "do not check me",
+      "urls": {
+         "last": "https://api.discogs.com/artists/4833444/releases?page=2&per_page=100",
+         "next": "https://api.discogs.com/artists/4833444/releases?page=2&per_page=100"
+      }
    },
    "releases": [
       {
-         "id": 8003926,
+         "id": 15204435,
          "status": "Accepted",
          "type": "release",
-         "format": "Cass, C30",
-         "label": "Tired Routine",
-         "title": "Note Repeats",
-         "resource_url": "https://api.discogs.com/releases/8003926",
+         "format": "12\", EP",
+         "label": "sewer sender",
+         "title": "Tenness",
+         "resource_url": "https://api.discogs.com/releases/15204435",
          "role": "Main",
          "artist": "M\u00e4teriet",
-         "year": 2015,
-         "thumb": "https://img.discogs.com/mdvibaDWL0GZBWpivAlbx5_KX3w=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-8003926-1453300368-6461.jpeg.jpg",
+         "year": 2021,
+         "thumb": "https://img.discogs.com/owCLtDzs75KdM3I60UsWxNEmmyE=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-15204435-1588072078-8371.jpeg.jpg",
          "stats": {
             "community": {
                "in_wantlist": 3,
-               "in_collection": 3
+               "in_collection": 13
             },
             "user": {
                "in_wantlist": 0,
-               "in_collection": 0
+               "in_collection": 1
             }
          }
       },
@@ -48,25 +51,25 @@
          }
       },
       {
-         "id": 15204435,
+         "id": 8003926,
          "status": "Accepted",
          "type": "release",
-         "format": "12\", EP",
-         "label": "sewer sender",
-         "title": "Tenness",
-         "resource_url": "https://api.discogs.com/releases/15204435",
+         "format": "Cass, C30",
+         "label": "Tired Routine",
+         "title": "Note Repeats",
+         "resource_url": "https://api.discogs.com/releases/8003926",
          "role": "Main",
          "artist": "M\u00e4teriet",
-         "year": 2020,
-         "thumb": "https://img.discogs.com/owCLtDzs75KdM3I60UsWxNEmmyE=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-15204435-1588072078-8371.jpeg.jpg",
+         "year": 2015,
+         "thumb": "https://img.discogs.com/mdvibaDWL0GZBWpivAlbx5_KX3w=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-8003926-1453300368-6461.jpeg.jpg",
          "stats": {
             "community": {
                "in_wantlist": 3,
-               "in_collection": 13
+               "in_collection": 3
             },
             "user": {
                "in_wantlist": 0,
-               "in_collection": 1
+               "in_collection": 0
             }
          }
       }
