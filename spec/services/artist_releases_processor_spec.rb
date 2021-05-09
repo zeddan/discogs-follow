@@ -13,6 +13,7 @@ RSpec.describe ArtistReleasesProcessor do
   let(:releases_url) do
     [
       "https://api.discogs.com/artists/#{artist.discogs_artist_id}/releases?",
+      "per_page=100&",
       "key=#{credentials[:key]}&",
       "secret=#{credentials[:secret]}"
     ].join
@@ -20,6 +21,7 @@ RSpec.describe ArtistReleasesProcessor do
   let(:release_8003926_url) do
     [
       "https://api.discogs.com/releases/8003926?",
+      "per_page=100&",
       "key=#{credentials[:key]}&",
       "secret=#{credentials[:secret]}"
     ].join
@@ -27,6 +29,7 @@ RSpec.describe ArtistReleasesProcessor do
   let(:release_15204435_url) do
     [
       "https://api.discogs.com/releases/15204435?",
+      "per_page=100&",
       "key=#{credentials[:key]}&",
       "secret=#{credentials[:secret]}"
     ].join
@@ -34,6 +37,7 @@ RSpec.describe ArtistReleasesProcessor do
   let(:release_18623872_url) do
     [
       "https://api.discogs.com/releases/18623872?",
+      "per_page=100&",
       "key=#{credentials[:key]}&",
       "secret=#{credentials[:secret]}"
     ].join

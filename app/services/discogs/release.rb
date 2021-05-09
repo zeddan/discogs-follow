@@ -25,6 +25,7 @@ module Discogs
     def url
       [
         "https://api.discogs.com/releases/#{@release_id}?",
+        "per_page=100&",
         "key=#{credentials[:key]}&",
         "secret=#{credentials[:secret]}"
       ].join
