@@ -14,8 +14,8 @@ RSpec.describe ArtistReleasesProcessor do
     [
       "https://api.discogs.com/artists/#{artist.discogs_artist_id}/releases?",
       "per_page=100&",
-      "sort=year",
-      "sort_order=desc",
+      "sort=year&",
+      "sort_order=desc&",
       "key=#{credentials[:key]}&",
       "secret=#{credentials[:secret]}"
     ].join
@@ -75,7 +75,6 @@ RSpec.describe ArtistReleasesProcessor do
           :release,
           label_id: label.id,
           discogs_release_id: existing_release["id"],
-          release_date: existing_release_detail["released"],
           uri: existing_release_detail["uri"],
           title: existing_release["title"],
           year: existing_release["year"],
@@ -106,63 +105,57 @@ RSpec.describe ArtistReleasesProcessor do
       expect(releases_request).to have_been_made
     end
 
-    it "requests multiple releases on same page released same year" do
-      call
+    context "when one new release" do
+      it "saves the release" do
+        release_id = latest_release["main_release"]
 
-      expect(release_18623872_request).to have_been_made
-      expect(release_15204435_request).to have_been_made
+        call
+
+        saved_release = Release.find_by(discogs_release_id: release_id)
+        expect(saved_release).to be_present
+      end
+
+      it "does not save other releases than the latest" do
+        expect { call }.to change(Release, :count).by(1)
+      end
     end
 
-    it "does not request old releases" do
+    context "when release is already saved" do
+      it "does not request multiple releases released same year" do
+        call
+
+        expect(release_18623872_request).to have_been_made
+        expect(release_15204435_request).not_to have_been_made
+      end
+    end
+
+    context "when release is not already saved" do
+      it "requests all the releases from the latest year" do
+        artist.releases.each(&:destroy)
+
+        call
+
+        expect(release_18623872_request).to have_been_made
+        expect(release_15204435_request).to have_been_made
+      end
+
+      it "saves all the releases from the latest year" do
+        release_ids = [18623872, 15204435]
+
+        call
+
+        saved_releases = Release.where(discogs_release_id: release_ids)
+        expect(saved_releases.size).to eq(release_ids.size)
+      end
+    end
+
+    it "does not request releases with release year prior to the latest" do
       call
 
       expect(release_8003926_request).not_to have_been_made
     end
 
-    it "selects the latest release" do
-      release_id = latest_release["main_release"]
-
-      call
-
-      saved_release = Release.find_by(discogs_release_id: release_id)
-      expect(saved_release).to be_present
-    end
-
-    it "does not save other releases than the latest" do
-      expect { call }.to change(Release, :count).by(1)
-    end
-
-    it "does not save as a new release when something changes" do
-      artist.releases.create(
-        label_id: label.id,
-        release_date: latest_release_detail["released"],
-        discogs_release_id: latest_release["main_release"],
-        uri: latest_release_detail["uri"],
-        title: latest_release["title"],
-        year: latest_release["year"],
-        thumb: "i will change"
-      )
-
-      expect { call }.not_to change(Release, :count)
-    end
-
-    it "updates release thumbnail when changed from api" do
-      artist.releases.create(
-        label_id: label.id,
-        release_date: latest_release_detail["released"],
-        discogs_release_id: latest_release["main_release"],
-        uri: latest_release_detail["uri"],
-        title: latest_release["title"],
-        year: latest_release["year"],
-        thumb: "i will change"
-      )
-
-      call
-
-      updated_release = artist.releases.find_by(discogs_release_id: latest_release["main_release"])
-      expect(updated_release.thumb).to eq(latest_release["thumb"])
-    end
-
+    #### saving attributes
     it "saves discogs release id" do
       call
 
@@ -197,12 +190,6 @@ RSpec.describe ArtistReleasesProcessor do
       saved_release = Release.find_by(discogs_release_id: latest_release["main_release"])
       expect(saved_release.uri).to eq(latest_release_detail["uri"])
     end
-
-    it "saves release with the latest release date" do
-      call
-
-      saved_release = Release.find_by(discogs_release_id: latest_release["main_release"])
-      expect(saved_release.release_date).to eq(latest_release_detail["released"])
-    end
+    #### -- saving attributes
   end
 end

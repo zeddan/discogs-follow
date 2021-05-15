@@ -39,8 +39,8 @@ module Discogs
       [
         "https://api.discogs.com/artists/#{@discogs_artist_id}/releases?",
         "per_page=100&",
-        "sort=year",
-        "sort_order=desc",
+        "sort=year&",
+        "sort_order=desc&",
         "key=#{credentials[:key]}&",
         "secret=#{credentials[:secret]}"
       ].join

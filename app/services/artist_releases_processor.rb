@@ -10,43 +10,44 @@ class ArtistReleasesProcessor
   private
 
   def save_releases
-    releases = Discogs::ArtistReleases.new(@discogs_artist_id).call
-    return if releases.empty?
+    all_releases = Discogs::ArtistReleases.new(@discogs_artist_id).call
+    return if all_releases.empty?
 
-    latest_release_year = releases.first["year"]
-    latest_year_releases = releases.select { |r| r["year"] == latest_release_year }
+    releases = releases_by_latest_year(all_releases)
+    releases.each do |release|
+      fetched_release = Discogs::Release.new(release_id(release)).call
+      labels = find_or_create_labels(fetched_release)
 
-    latest_release_detailed = latest_year_releases.map do |release|
-      Discogs::Release.new(release_id(release)).call
-    end.max_by do |release|
-      release["released"]
-    end
+      labels.each do |label|
+        new_release = Release.find_or_initialize_by(
+          discogs_release_id: fetched_release["id"],
+          label: label
+        )
 
-    latest_release_general = latest_year_releases.detect do |release|
-      release_id(release) == latest_release_detailed["id"]
-    end
-
-    labels = find_or_create_labels(latest_release_detailed)
-
-    labels.each do |label|
-      new_release = Release.find_or_initialize_by(
-        discogs_release_id: latest_release_detailed["id"],
-        label: label
-      )
-
-      new_release.update!(
-        artist: artist,
-        release_date: latest_release_detailed["released"],
-        uri: latest_release_detailed["uri"],
-        title: latest_release_general["title"],
-        year: latest_release_general["year"],
-        thumb: latest_release_general["thumb"]
-      )
+        new_release.update!(
+          artist: artist,
+          uri: fetched_release["uri"],
+          title: release["title"],
+          year: release["year"],
+          thumb: release["thumb"]
+        )
+      end
     end
   end
 
+  def releases_by_latest_year(releases)
+    latest_year = releases.first["year"]
+    releases
+      .select { |r| r["year"] == latest_year }
+      .reject { |r| release_exists?(r) }
+  end
+
   def artist
-    Artist.find_by(discogs_artist_id: @discogs_artist_id)
+    @artist ||= Artist.find_by(discogs_artist_id: @discogs_artist_id)
+  end
+
+  def release_exists?(release)
+    Release.find_by(discogs_release_id: release_id(release)).present?
   end
 
   def release_id(release)
