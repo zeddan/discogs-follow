@@ -1,7 +1,7 @@
 <%= link_to "<< go back", root_path, class: "back" %>
 
 <% @artist.releases.sort_by(&:year).reverse!.each do |release| %>
-  <%= link_to release.uri, class: "artist-releases" do %>
+  <%= link_to release.uri, target: "_blank", class: "artist-releases" do %>
     <p>
       <% if release.thumb.presence %>
         <img src="<%= release.thumb %>"/>

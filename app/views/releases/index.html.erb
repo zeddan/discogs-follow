@@ -3,7 +3,7 @@
 </div>
 
 <% @releases.each do |release| %>
-  <%= link_to release.uri, class: "releases" do %>
+  <%= link_to release.uri, target: "_blank", class: "releases" do %>
     <p>
       <% if release.thumb.presence %>
         <img src="<%= release.thumb %>"/>
