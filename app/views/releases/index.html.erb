@@ -1,0 +1,16 @@
+<div>
+  <%= link_to "<< go home", root_path, class: "back" %>
+</div>
+
+<% @releases.each do |release| %>
+  <%= link_to release.uri, class: "releases" do %>
+    <p>
+      <% if release.thumb.presence %>
+        <img src="<%= release.thumb %>"/>
+      <% end %>
+      <div>artist: <%= release.artist.name %></div>
+      <div>title: <%= release.title %></div>
+      <div>year: <%= release.year %></div>
+    </p>
+  <% end %>
+<% end %>

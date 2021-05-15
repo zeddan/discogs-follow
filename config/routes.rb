@@ -26,10 +26,12 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/hehe", to: "users#new"
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  get "releases", to: "releases#index"
+
+  get "hehe", to: "users#new"
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#destroy"
 
   resources :users, only: %i[new create]
 end
