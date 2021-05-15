@@ -19,12 +19,9 @@ class ArtistReleasesProcessor
       labels = find_or_create_labels(fetched_release)
 
       labels.each do |label|
-        new_release = Release.find_or_initialize_by(
+        Release.create(
           discogs_release_id: fetched_release["id"],
-          label: label
-        )
-
-        new_release.update!(
+          label: label,
           artist: artist,
           uri: fetched_release["uri"],
           title: release["title"],
