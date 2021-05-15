@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :artists do
+  resources :artists, except: :create do
     resources :follows, except: %i[new create], module: :artists
     collection do
       resources :follows,
@@ -26,12 +26,10 @@ Rails.application.routes.draw do
     end
   end
 
-
   get "/hehe", to: "users#new"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
   resources :users, only: %i[new create]
-  # resources :artists
 end
